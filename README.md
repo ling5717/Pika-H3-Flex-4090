@@ -33,7 +33,16 @@ A separate RTX 4090 test used Pika's [official Record-shop dance demonstration](
 
 A separate 480p run routed audio extracted from that same reference video into the independent-audio input and completed in 190.815 seconds. This is a derived interface test, not an independent official audio sample. All three outputs decoded with non-silent stereo audio; no subjective audio audition was performed. The local sample retained the shop and broad dance scene, but failed to preserve the official character's animal face and striped tail in the inspected frames.
 
-The [Ref2VA guide](docs/4090/REF2VA.md) contains the official demo and input links, exact model and LoRA downloads and hashes, workflow/benchmark instructions, timing and full limitations. The official demo seed, rendering checkpoint and preprocessing are unknown. Local generated media are not publicly redistributed here; review the model's territorial and output-display restrictions.
+### Demo: official vs. RTX 4090
+
+| Official Pika-Labs showcase | Local RTX 4090 output (AI-generated) |
+|:---:|:---:|
+| [![Official Record-shop dance preview](assets/showcases/motion-transfer.jpg)](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/motion-transfer.mp4) | [![Local 4090 result, labelled 6 min 38 s](assets/demos/ref2va-4090-preview.jpg)](https://github.com/ling5717/Pika-H3-Flex-4090/raw/main/assets/demos/ref2va-4090-labeled.mp4) |
+| [▶ Watch official video](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/motion-transfer.mp4) | [▶ Watch local result with audio](https://github.com/ling5717/Pika-H3-Flex-4090/raw/main/assets/demos/ref2va-4090-labeled.mp4) |
+
+The local video is labelled **RTX 4090 · 768p · 6 min 38 s**, corresponding to **397.957 s complete node execution** for 243 frames at 24 fps and six evaluations. Timing includes reference encoding, sampling, audio/video decoding and saving; it excludes server startup. This is one local run. The official demo's seed, generating checkpoint, preprocessing and runtime are undisclosed, so the two videos are a qualitative comparison, not a controlled benchmark or exact reproduction.
+
+The [Ref2VA guide](docs/4090/REF2VA.md) contains the input links, model and LoRA hashes, workflow instructions and limitations. The repository owner confirmed separate authorization for public display of this local result; that does **not** grant viewers additional rights. Review the [MiniMax H3 license](LICENSE), including its territorial and output-display restrictions.
 
 ## Quick start
 
