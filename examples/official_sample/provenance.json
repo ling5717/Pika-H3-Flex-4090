@@ -1,0 +1,110 @@
+{
+  "case_id": "official-balcony-orbit-t2v-comparison",
+  "prepared_at_utc": "2026-11-01T02:50:26.019957+00:00",
+  "status": "Prepared comparison input only; no local generation or quality review performed by this preparation task.",
+  "reference": {
+    "publisher": "Pika-Labs",
+    "title": "A journey between balconies",
+    "showcase_id": "balcony-orbit",
+    "manifest_path": "assets/showcases/manifest.json",
+    "manifest_sha256": "a785cb2a4968a2909b951d994ace93f25dc5224397ac714a3f7c6c247eb69856",
+    "manifest_disclaimer": "Creative showcases with prompts and available input assets. These are not release-validation renders; seeds, exact checkpoint revisions and service preprocessing are not specified. Exact reproduction with the released package is not guaranteed.",
+    "download_url_requested": "https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/balcony-orbit.mp4",
+    "download_url_used": "https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/balcony-orbit.mp4",
+    "download_source_revision": "0ddf55ad7067ca1e76812253bd7b4600df87f759",
+    "http_status": 200,
+    "main_fallback_used": false,
+    "redirect_note": "Hugging Face redirected to its public CDN. Expiring signed CDN query parameters are intentionally not persisted.",
+    "manifest_video_sha256": "fcc6901cd5b29d7cf21cd0980d9520ee19bdca8c4941fa01b7340dc70c19ac00",
+    "downloaded_sha256_matches_manifest": true,
+    "manifest_duration_seconds": 13.675,
+    "inputs": [],
+    "media_probe": {
+      "sha256": "fcc6901cd5b29d7cf21cd0980d9520ee19bdca8c4941fa01b7340dc70c19ac00",
+      "size_bytes": 18189846,
+      "container_duration_seconds": 13.675,
+      "pyav_version": "19.0.2",
+      "video": [
+        {
+          "stream_index": 0,
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "average_rate": "24/1",
+          "base_rate": "24/1",
+          "time_base": "1/12288",
+          "declared_frames": 328,
+          "duration_ticks": 167936,
+          "duration_seconds": 13.666666666666666,
+          "decoded_frames": 328,
+          "first_frame_time_seconds": 0.0,
+          "last_frame_time_seconds": 13.625
+        }
+      ],
+      "audio": [
+        {
+          "stream_index": 1,
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "layout": "stereo",
+          "time_base": "1/32000",
+          "duration_ticks": 437600,
+          "duration_seconds": 13.675,
+          "decoded_audio_frames": 428,
+          "decoded_samples_per_channel": 437600
+        }
+      ]
+    },
+    "cached_video_path": "benchmarks/local/official/balcony-orbit.mp4",
+    "video_commit_policy": "Ignored local reference only; do not commit or redistribute the video as part of this comparison case."
+  },
+  "prompt": {
+    "source": "Exact prompt string from the balcony-orbit entry in assets/showcases/manifest.json",
+    "file": "examples/official_sample/prompt.txt",
+    "encoding": "UTF-8, no added trailing newline",
+    "sha256": "427c7b2dc7f7bb4cee4d5a281c3e10fcbf57b0e3fbe96da6991ab4ea2c155ad2",
+    "characters": 3254,
+    "matches_api_prompt": true,
+    "upstream_prompt_file_note": "The manifest names assets/showcases/balcony-orbit.txt, but that file is absent in this checkout; the embedded manifest prompt is used without rewriting."
+  },
+  "local_candidate": {
+    "api_graph": "examples/official_sample/api-balcony.json",
+    "api_graph_sha256": "280551bdd10bea63e9884107dc2d77fb30a74a1d8bbcca083fdcfceb05f40e0a",
+    "based_on": "workflows/api-t2v-768p-15s.json",
+    "source_graph_sha256": "d0e96b0a0fd4ada7c958fd6c9340bbfcb9c7c701335441856d34a72fc37de4c3",
+    "width": 1344,
+    "height": 768,
+    "frames": 328,
+    "fps": 24,
+    "frame_grid": "328 = 17 * 19 + 5",
+    "video_duration_seconds": 13.666666666666666,
+    "seed": 42,
+    "seed_origin": "Local comparison choice; official showcase seed is not disclosed.",
+    "guider": "BasicGuider",
+    "sampler": "lcm",
+    "model_evaluations": 6,
+    "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0",
+    "lora_mode": "low_peak",
+    "lora_strength": 1.0,
+    "ffn_chunk_size": 16384,
+    "activation": "native",
+    "fused_modulation": false,
+    "model_identity_note": "Uses selected public quantized ComfyUI components from the base API graph. This does not establish identity with the model used for the official showcase.",
+    "comparison_scope": "Prompt-matched qualitative comparison, separate from the 362-frame 15-second performance workload."
+  },
+  "unknown_official_settings": [
+    "Generation seed",
+    "Exact model checkpoint and adapter revisions used to render the showcase",
+    "Service preprocessing or prompt transformation",
+    "Exact sampler/runtime/kernel configuration",
+    "Any service-side postprocessing, editing or encoding transformations"
+  ],
+  "not_claimed": [
+    "Exact reproduction of the official showcase",
+    "Bitwise, latent, pixel or audio ground truth equivalence",
+    "A successful local generation",
+    "Subjective quality or soundtrack parity",
+    "Comparable timing to the separate 362-frame performance benchmark"
+  ]
+}

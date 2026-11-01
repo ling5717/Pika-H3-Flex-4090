@@ -1,0 +1,5 @@
+# Optional benchmark/validation utilities; not needed merely to load the nodes.
+requests==2.34.2
+av==19.0.2
+numpy==2.5.4
+Pillow==13.0.0

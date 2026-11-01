@@ -1,0 +1,30 @@
+{
+  "os": "Windows",
+  "release": "11",
+  "python": "3.12.14",
+  "packages": {
+    "torch": "2.9.1+cu130",
+    "torchvision": "0.24.1+cu130",
+    "torchaudio": "2.9.1+cu130",
+    "comfy-kitchen": "0.2.40",
+    "comfy-aimdo": "0.6.0",
+    "comfyui-frontend-package": "1.57.6",
+    "comfyui-workflow-templates": "0.11.100",
+    "transformers": "5.22.1",
+    "safetensors": "0.8.0",
+    "av": "19.0.2",
+    "numpy": "2.5.4",
+    "requests": "2.34.2",
+    "PyYAML": "6.0.3",
+    "triton-windows": "3.5.1.post24",
+    "Pillow": "13.0.0"
+  },
+  "backend_commit": "0dbfd493b4cc604db743c699f0f7ce01348e54a4",
+  "gpu": "NVIDIA GeForce RTX 4090, 621.01, 24564 MiB",
+  "ram_GiB": 64,
+  "notes": [
+    "Windows machine qualification only",
+    "Fresh service processes; OS files/driver and compiler caches not cleared",
+    "Interactive desktop is included in whole-card samples"
+  ]
+}

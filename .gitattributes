@@ -1,0 +1,12 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+# Benchmark manifests hash exact graph bytes: never rewrite their line endings.
+*.json -text whitespace=cr-at-eol
+*.yml text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf
+*.cff text eol=lf
+*.png binary
+*.jpg binary
+*.mp4 binary

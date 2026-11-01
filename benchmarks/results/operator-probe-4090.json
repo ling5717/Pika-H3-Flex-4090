@@ -1,0 +1,135 @@
+{
+  "torch": "2.9.1+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "rows": 16384,
+  "scope": "Synthetic real FFN shapes; not full-generation quality or latency.",
+  "tests": [
+    {
+      "kind": "lora",
+      "mode": "low_peak",
+      "dtype": "torch.bfloat16",
+      "nrmse": 0.0,
+      "cosine": 1.0,
+      "max_abs": 0.0,
+      "median_cuda_ms": 4.4021759033203125
+    },
+    {
+      "kind": "lora",
+      "mode": "addmm",
+      "dtype": "torch.bfloat16",
+      "nrmse": 0.0017241723156869843,
+      "cosine": 0.9999985321038896,
+      "max_abs": 0.03125,
+      "median_cuda_ms": 4.494336128234863
+    },
+    {
+      "kind": "lora",
+      "mode": "reference",
+      "dtype": "torch.bfloat16",
+      "median_cuda_ms": 6.7942399978637695
+    },
+    {
+      "kind": "activation",
+      "mode": "triton",
+      "dtype": "torch.bfloat16",
+      "nrmse": 0.0,
+      "cosine": 1.0,
+      "max_abs": 0.0,
+      "first_call_seconds": 3.110000000000582,
+      "median_cuda_ms": 1.598464012145996
+    },
+    {
+      "kind": "activation",
+      "mode": "compiled",
+      "dtype": "torch.bfloat16",
+      "nrmse": 0.0027006531291041674,
+      "cosine": 0.9999963460875029,
+      "max_abs": 0.5,
+      "first_call_seconds": 24.42199999999866,
+      "median_cuda_ms": 1.7018879652023315
+    },
+    {
+      "kind": "activation",
+      "mode": "eager",
+      "dtype": "torch.bfloat16",
+      "median_cuda_ms": 2.6798079013824463
+    },
+    {
+      "kind": "lora",
+      "mode": "low_peak",
+      "dtype": "torch.float16",
+      "nrmse": 0.0,
+      "cosine": 1.0,
+      "max_abs": 0.0,
+      "median_cuda_ms": 13.114368438720703
+    },
+    {
+      "kind": "lora",
+      "mode": "addmm",
+      "dtype": "torch.float16",
+      "nrmse": 0.00021545107698006883,
+      "cosine": 0.9999999846617139,
+      "max_abs": 0.00390625,
+      "median_cuda_ms": 4.617216110229492
+    },
+    {
+      "kind": "lora",
+      "mode": "reference",
+      "dtype": "torch.float16",
+      "median_cuda_ms": 20.724735260009766
+    },
+    {
+      "kind": "activation",
+      "mode": "triton",
+      "dtype": "torch.float16",
+      "nrmse": 7.338814644517178e-07,
+      "cosine": 1.0,
+      "max_abs": 0.001953125,
+      "first_call_seconds": 0.7340000000040163,
+      "median_cuda_ms": 4.497407913208008
+    },
+    {
+      "kind": "activation",
+      "mode": "compiled",
+      "dtype": "torch.float16",
+      "nrmse": 0.00034495482742771875,
+      "cosine": 0.9999999252752786,
+      "max_abs": 0.0625,
+      "first_call_seconds": 0.9219999999986612,
+      "median_cuda_ms": 1.8053120374679565
+    },
+    {
+      "kind": "activation",
+      "mode": "eager",
+      "dtype": "torch.float16",
+      "median_cuda_ms": 2.637824058532715
+    }
+  ],
+  "input_shapes": {
+    "lora_x": [
+      16384,
+      5376
+    ],
+    "lora_down": [
+      128,
+      5376
+    ],
+    "lora_up": [
+      28672,
+      128
+    ],
+    "lora_base_out": [
+      16384,
+      28672
+    ],
+    "activation_packed": [
+      16384,
+      28672
+    ]
+  },
+  "metric_definition": "NRMSE = L2(actual-reference) / L2(reference); cosine over flattened output. Synthetic values, not generated video.",
+  "repeats": 5,
+  "seed": 42,
+  "reproduce": "python tools/probe_equivalence.py --device cuda --compile --output benchmarks/local/probe.json"
+}

@@ -1,0 +1,28 @@
+{
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "shape": [
+    109089,
+    5376
+  ],
+  "scope": "Synthetic packed tokens, shared RMS/AdaLN op; not full model fidelity or latency",
+  "tests": [
+    {
+      "dtype": "torch.bfloat16",
+      "nrmse": 0.0036337256332606045,
+      "cosine": 0.9999934556465258,
+      "max_abs": 0.0625,
+      "reference_median_cuda_ms": 8.732447624206543,
+      "fused_median_cuda_ms": 6.083583831787109,
+      "within_tolerance": true
+    },
+    {
+      "dtype": "torch.float16",
+      "nrmse": 0.0004675851359038346,
+      "cosine": 0.9999999013316794,
+      "max_abs": 0.0078125,
+      "reference_median_cuda_ms": 8.698783874511719,
+      "fused_median_cuda_ms": 6.023136138916016,
+      "within_tolerance": true
+    }
+  ]
+}

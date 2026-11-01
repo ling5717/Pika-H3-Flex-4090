@@ -1,0 +1,523 @@
+{
+  "scope": "Development snapshots before final lifecycle safety fixes. One full request per candidate, not paired statistics. Exact public graph bytes and complete decoded comparison receipts are retained.",
+  "qualified_code_commit": null,
+  "runs": [
+    {
+      "status": "success",
+      "execution_seconds": 370.639,
+      "observed_seconds": 373.4369999999981,
+      "cached_nodes": [],
+      "valid_generation_timing": true,
+      "width": 1344,
+      "height": 768,
+      "frames": 362,
+      "fps": 24.0,
+      "nfe": 6,
+      "graph_sha256": "d0e96b0a0fd4ada7c958fd6c9340bbfcb9c7c701335441856d34a72fc37de4c3",
+      "lora_mode": "low_peak",
+      "ffn": {
+        "model": [
+          "134",
+          0
+        ],
+        "chunk_size": "16384",
+        "activation": "native"
+      },
+      "outputs": {
+        "92": {
+          "images": [
+            {
+              "filename": "pika4090_low_peak_00001_.mp4",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "video",
+                "width": 1344,
+                "height": 768,
+                "duration": 15.083333333333334,
+                "fps": 24.0,
+                "frame_count": 362
+              }
+            }
+          ],
+          "animated": [
+            true
+          ]
+        }
+      },
+      "whole_card_sampled_max_MiB": 23087.0,
+      "gpu_samples": 75,
+      "timing_scope": "execution_start to success, excluding server startup; file/kernel caches may be warm",
+      "case": "benchmarks/cases/low_peak.json",
+      "validation": {
+        "file": "pika4090_low_peak_00001_.mp4",
+        "bytes": 8389043,
+        "video": {
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "fps": 24.0,
+          "decoded_frames": 362,
+          "duration_seconds": 15.083333333333334,
+          "minimum_frame_std": 56.70205771297578
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 482400,
+          "rms": 0.0026271523774437423,
+          "peak": 0.09428755193948746
+        },
+        "reference_comparison": {
+          "reference": "pika_ck_bypass_ffn16_768_15s_00001_.mp4",
+          "decoded_pixels_bit_exact": true,
+          "mae_0_255": 0.0,
+          "maximum_abs_0_255": 0,
+          "psnr_db": null,
+          "scope": "Decoded RGB pixel comparison, not LPIPS, latent equivalence or subjective quality",
+          "audio": {
+            "sample_count_matches": true,
+            "decoded_pcm_bit_exact": true,
+            "nrmse": 0.0,
+            "max_abs": 0.0,
+            "scope": "Aligned decoded PCM comparison, not subjective audio quality"
+          }
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "reference_preserving_on_this_sample": true
+    },
+    {
+      "status": "success",
+      "execution_seconds": 370.109,
+      "observed_seconds": 373.5460000000021,
+      "cached_nodes": [],
+      "valid_generation_timing": true,
+      "width": 1344,
+      "height": 768,
+      "frames": 362,
+      "fps": 24.0,
+      "nfe": 6,
+      "graph_sha256": "cae0bf57fac679dfdec4dc87007e1e5bde641315cda5725f3148ad75145c5efa",
+      "lora_mode": "low_peak",
+      "ffn": {
+        "model": [
+          "134",
+          0
+        ],
+        "chunk_size": "16384",
+        "activation": "triton"
+      },
+      "outputs": {
+        "92": {
+          "images": [
+            {
+              "filename": "pika4090_triton_00001_.mp4",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "video",
+                "width": 1344,
+                "height": 768,
+                "duration": 15.083333333333334,
+                "fps": 24.0,
+                "frame_count": 362
+              }
+            }
+          ],
+          "animated": [
+            true
+          ]
+        }
+      },
+      "whole_card_sampled_max_MiB": 22628.0,
+      "gpu_samples": 75,
+      "timing_scope": "execution_start to success, excluding server startup; file/kernel caches may be warm",
+      "case": "benchmarks/cases/triton.json",
+      "validation": {
+        "file": "pika4090_triton_00001_.mp4",
+        "bytes": 8389041,
+        "video": {
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "fps": 24.0,
+          "decoded_frames": 362,
+          "duration_seconds": 15.083333333333334,
+          "minimum_frame_std": 56.70205771297578
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 482400,
+          "rms": 0.0026271523774437423,
+          "peak": 0.09428755193948746
+        },
+        "reference_comparison": {
+          "reference": "pika4090_low_peak_00001_.mp4",
+          "decoded_pixels_bit_exact": true,
+          "mae_0_255": 0.0,
+          "maximum_abs_0_255": 0,
+          "psnr_db": null,
+          "scope": "Decoded RGB pixel comparison, not LPIPS, latent equivalence or subjective quality",
+          "audio": {
+            "sample_count_matches": true,
+            "decoded_pcm_bit_exact": true,
+            "nrmse": 0.0,
+            "max_abs": 0.0,
+            "scope": "Aligned decoded PCM comparison, not subjective audio quality"
+          }
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "reference_preserving_on_this_sample": true
+    },
+    {
+      "status": "success",
+      "execution_seconds": 370.739,
+      "observed_seconds": 373.43700000000536,
+      "cached_nodes": [],
+      "valid_generation_timing": true,
+      "width": 1344,
+      "height": 768,
+      "frames": 362,
+      "fps": 24.0,
+      "nfe": 6,
+      "graph_sha256": "9d03b4944dca8917e0d68e1033711861e57212b550e409774d28a6ac45f7e9f1",
+      "lora_mode": "addmm",
+      "ffn": {
+        "model": [
+          "134",
+          0
+        ],
+        "chunk_size": "16384",
+        "activation": "triton"
+      },
+      "outputs": {
+        "92": {
+          "images": [
+            {
+              "filename": "pika4090_addmm_00001_.mp4",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "video",
+                "width": 1344,
+                "height": 768,
+                "duration": 15.083333333333334,
+                "fps": 24.0,
+                "frame_count": 362
+              }
+            }
+          ],
+          "animated": [
+            true
+          ]
+        }
+      },
+      "whole_card_sampled_max_MiB": 20888.0,
+      "gpu_samples": 75,
+      "timing_scope": "execution_start to success, excluding server startup; file/kernel caches may be warm",
+      "case": "benchmarks/cases/addmm.json",
+      "validation": {
+        "file": "pika4090_addmm_00001_.mp4",
+        "bytes": 8378557,
+        "video": {
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "fps": 24.0,
+          "decoded_frames": 362,
+          "duration_seconds": 15.083333333333334,
+          "minimum_frame_std": 57.226534616010014
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 482400,
+          "rms": 0.0025255589411863804,
+          "peak": 0.10249409824609756
+        },
+        "reference_comparison": {
+          "reference": "pika4090_low_peak_00001_.mp4",
+          "decoded_pixels_bit_exact": false,
+          "mae_0_255": 28.64995653120741,
+          "maximum_abs_0_255": 255,
+          "psnr_db": 14.705447667738955,
+          "scope": "Decoded RGB pixel comparison, not LPIPS, latent equivalence or subjective quality",
+          "audio": {
+            "sample_count_matches": true,
+            "decoded_pcm_bit_exact": false,
+            "nrmse": 0.968731009282937,
+            "max_abs": 0.10105817206203938,
+            "scope": "Aligned decoded PCM comparison, not subjective audio quality"
+          }
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "reference_preserving_on_this_sample": false
+    },
+    {
+      "status": "success",
+      "execution_seconds": 376.79,
+      "observed_seconds": 378.75,
+      "cached_nodes": [],
+      "valid_generation_timing": true,
+      "width": 1344,
+      "height": 768,
+      "frames": 362,
+      "fps": 24.0,
+      "nfe": 6,
+      "graph_sha256": "fa1c42714237ca88fee6eb83a5ee630b20803d2f91fb164875a2180001615e54",
+      "lora_mode": "low_peak",
+      "ffn": {
+        "model": [
+          "134",
+          0
+        ],
+        "chunk_size": "16384",
+        "activation": "compiled"
+      },
+      "outputs": {
+        "92": {
+          "images": [
+            {
+              "filename": "pika4090_compiled_00001_.mp4",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "video",
+                "width": 1344,
+                "height": 768,
+                "duration": 15.083333333333334,
+                "fps": 24.0,
+                "frame_count": 362
+              }
+            }
+          ],
+          "animated": [
+            true
+          ]
+        }
+      },
+      "whole_card_sampled_max_MiB": 20770.0,
+      "gpu_samples": 76,
+      "timing_scope": "execution_start to success, excluding server startup; file/kernel caches may be warm",
+      "case": "benchmarks/cases/compiled.json",
+      "validation": {
+        "file": "pika4090_compiled_00001_.mp4",
+        "bytes": 8173304,
+        "video": {
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "fps": 24.0,
+          "decoded_frames": 362,
+          "duration_seconds": 15.083333333333334,
+          "minimum_frame_std": 55.05313713665725
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 482400,
+          "rms": 0.002356478460953508,
+          "peak": 0.07961130887269974
+        },
+        "reference_comparison": {
+          "reference": "pika4090_low_peak_00001_.mp4",
+          "decoded_pixels_bit_exact": false,
+          "mae_0_255": 28.432480213005043,
+          "maximum_abs_0_255": 255,
+          "psnr_db": 14.551763739766038,
+          "scope": "Decoded RGB pixel comparison, not LPIPS, latent equivalence or subjective quality",
+          "audio": {
+            "sample_count_matches": true,
+            "decoded_pcm_bit_exact": false,
+            "nrmse": 0.9056281343297943,
+            "max_abs": 0.10295376554131508,
+            "scope": "Aligned decoded PCM comparison, not subjective audio quality"
+          }
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "reference_preserving_on_this_sample": false
+    },
+    {
+      "status": "success",
+      "execution_seconds": 370.366,
+      "observed_seconds": 371.56200000000536,
+      "cached_nodes": [],
+      "valid_generation_timing": true,
+      "width": 1344,
+      "height": 768,
+      "frames": 362,
+      "fps": 24.0,
+      "nfe": 6,
+      "graph_sha256": "dba0d59a185717702a5169f0ecd9f51765f5aa15969bee8641177db4f95287b9",
+      "lora_mode": "low_peak",
+      "ffn": {
+        "model": [
+          "134",
+          0
+        ],
+        "chunk_size": "16384",
+        "activation": "native",
+        "fused_modulation": true
+      },
+      "outputs": {
+        "92": {
+          "images": [
+            {
+              "filename": "pika4090_modulation_00001_.mp4",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "video",
+                "width": 1344,
+                "height": 768,
+                "duration": 15.083333333333334,
+                "fps": 24.0,
+                "frame_count": 362
+              }
+            }
+          ],
+          "animated": [
+            true
+          ]
+        }
+      },
+      "whole_card_sampled_max_MiB": 20659.0,
+      "gpu_samples": 71,
+      "timing_scope": "execution_start to success, excluding server startup; file/kernel caches may be warm",
+      "case": "benchmarks/cases/modulation.json",
+      "validation": {
+        "file": "pika4090_modulation_00001_.mp4",
+        "bytes": 8408573,
+        "video": {
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "fps": 24.0,
+          "decoded_frames": 362,
+          "duration_seconds": 15.083333333333334,
+          "minimum_frame_std": 54.89968947881039
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 482400,
+          "rms": 0.002100662260317894,
+          "peak": 0.0814606249332428
+        },
+        "reference_comparison": {
+          "reference": "pika4090_low_peak_00001_.mp4",
+          "decoded_pixels_bit_exact": false,
+          "mae_0_255": 30.103045603090788,
+          "maximum_abs_0_255": 255,
+          "psnr_db": 14.16473594758015,
+          "scope": "Decoded RGB pixel comparison, not LPIPS, latent equivalence or subjective quality",
+          "audio": {
+            "sample_count_matches": true,
+            "decoded_pcm_bit_exact": false,
+            "nrmse": 0.8557095468119664,
+            "max_abs": 0.1113843321800232,
+            "scope": "Aligned decoded PCM comparison, not subjective audio quality"
+          }
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "reference_preserving_on_this_sample": false
+    },
+    {
+      "status": "success",
+      "execution_seconds": 374.285,
+      "observed_seconds": 378.5310000000027,
+      "cached_nodes": [],
+      "valid_generation_timing": true,
+      "width": 1344,
+      "height": 768,
+      "frames": 362,
+      "fps": 24.0,
+      "nfe": 6,
+      "graph_sha256": "183cb3cfcaad57a064237aab52ba8fd133c3c6d1e99a081703e8e3d4fc593196",
+      "lora_mode": "low_peak",
+      "ffn": {
+        "model": [
+          "134",
+          0
+        ],
+        "chunk_size": "32768",
+        "activation": "native"
+      },
+      "outputs": {
+        "92": {
+          "images": [
+            {
+              "filename": "pika4090_chunk32_00001_.mp4",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "video",
+                "width": 1344,
+                "height": 768,
+                "duration": 15.083333333333334,
+                "fps": 24.0,
+                "frame_count": 362
+              }
+            }
+          ],
+          "animated": [
+            true
+          ]
+        }
+      },
+      "whole_card_sampled_max_MiB": 21228.0,
+      "gpu_samples": 72,
+      "timing_scope": "execution_start to success, excluding server startup; file/kernel caches may be warm",
+      "case": "benchmarks/cases/chunk32.json",
+      "validation": {
+        "file": "pika4090_chunk32_00001_.mp4",
+        "bytes": 8622282,
+        "video": {
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "fps": 24.0,
+          "decoded_frames": 362,
+          "duration_seconds": 15.083333333333334,
+          "minimum_frame_std": 55.49704303414748
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 482400,
+          "rms": 0.0020556869420143013,
+          "peak": 0.06210094690322876
+        },
+        "reference_comparison": {
+          "reference": "pika4090_low_peak_00001_.mp4",
+          "decoded_pixels_bit_exact": false,
+          "mae_0_255": 30.001640900799188,
+          "maximum_abs_0_255": 255,
+          "psnr_db": 14.071034586422527,
+          "scope": "Decoded RGB pixel comparison, not LPIPS, latent equivalence or subjective quality",
+          "audio": {
+            "sample_count_matches": true,
+            "decoded_pcm_bit_exact": false,
+            "nrmse": 0.9771277176815211,
+            "max_abs": 0.09338576905429363,
+            "scope": "Aligned decoded PCM comparison, not subjective audio quality"
+          }
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "reference_preserving_on_this_sample": false
+    }
+  ]
+}

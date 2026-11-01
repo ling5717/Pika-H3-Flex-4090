@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "For the upstream model, also cite Pika Research using CITATION.bib. This citation identifies only the independent 4090 integration."
+title: "Pika-H3-Flex-4090: An unofficial ComfyUI integration"
+type: software
+authors:
+  - name: "Pika-H3-Flex-4090 contributors"
+repository-code: "https://github.com/ling5717/Pika-H3-Flex-4090"
+url: "https://github.com/ling5717/Pika-H3-Flex-4090"
+abstract: "Execution-scoped FFN and LoRA optimizations, optional GPU operator candidates, numerical validation and measured RTX4090 deployment workflows. Model weights are not redistributed."

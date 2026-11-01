@@ -1,0 +1,181 @@
+{
+  "119": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "120": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "127": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "128": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    }
+  },
+  "134": {
+    "class_type": "PikaH3LowPeakLoRA",
+    "inputs": {
+      "model": [
+        "127",
+        0
+      ],
+      "lora_name": "pika_h3_flex_fl2va_v1_bf16.safetensors",
+      "strength": 1.0,
+      "mode": "low_peak"
+    }
+  },
+  "131": {
+    "class_type": "MiniMaxH3ImageToVideo",
+    "inputs": {
+      "clip": [
+        "128",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ],
+      "prompt": "A tall white modernist apartment tower against a soft pale-blue sky with faint streaky cirrus cloud. The building sits on the right half of the frame; the left half is open sky. Smooth off-white render facade with small square windows in thick white frames. Three identical cantilevered concrete balconies are stacked vertically on the building's corner, each a thick white slab with an angled, wedge-shaped underside and a thin white metal railing of vertical balusters. Crisp, graphic, minimal, soft 1970s film palette: chalky whites, powder blue, muted pastels.\n\nThree people are doing a slow, calm morning stretch routine, one per balcony. They are always gently in motion, never frozen, but every movement is slow, smooth and controlled, like yoga or tai chi: each stretch takes three to four seconds to flow into, eases gently at the end, and flows unhurried into the next. No fast, jerky, snapping or flailing movements. Graceful, deliberate, meditative.\nTop balcony: a young woman with dark hair pulled back, in a lilac fluffy knit jumper and matching lilac wide-leg knit trousers. She slowly reaches both arms high overhead, then gradually leans her upper body into a long side bend to the left, eases back to centre, and slowly leans to the right.\nMiddle balcony: a man with short dark hair in a rust-red tracksuit. He hangs in a deep forward fold with palms on the floor, then slowly rolls up through his spine to standing, and lifts his arms in one wide, slow circle overhead.\nBottom balcony: an older woman with short silver-grey hair in a cobalt blue short-sleeved polo and loose cream trousers. She holds a wide warrior lunge with arms stretched out to each side, slowly shifts her weight from one bent knee to the other, and gently sweeps one arm up and over her head into a side bend.\nEach person moves at their own unhurried rhythm, slightly out of sync with each other, with full-body range of motion: knitwear and trousers stretching and settling, real balance and weight.\n\nCamera, one continuous shot with no cuts:\n0-3s: Wide establishing frame. The camera begins a slow, smooth orbit around the corner of the tower, arcing about 40 degrees, with strong parallax between the balconies, building face and sky.\n3-5s: Still moving, the camera pushes in hard on the middle balcony until the man in the red tracksuit fills the frame alone, waist-up, mid-stretch, railing in the foreground.\n5-7s: A steady vertical boom up the face of the building, past the concrete underside of the slab above, revealing the lilac woman mid-side-bend.\n7-10s: A fast, controlled boom straight down past the middle balcony to the bottom one, revealing the older woman shifting through her lunge.\n10-13s: Smooth pull back and reverse orbit, landing on the opening wide composition, all three still actively stretching.\n\nSoft diffused daylight, gentle soft shadows under each slab, no hard sun. 35mm film look with fine grain. Stabilized crane/drone motion, never jittery.\n\nSound: natural diegetic location sound only — light wind gusting past the building, distant city hum, faint birds, soft fabric rustle. No music, no score, no singing, no melody, no rhythm track. No speech, no voices, no talking, no dialogue, no murmuring, no vocal sounds of any kind.",
+      "width": 1344,
+      "height": 768,
+      "length": 328
+    }
+  },
+  "126": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "201",
+        0
+      ],
+      "conditioning": [
+        "131",
+        0
+      ]
+    }
+  },
+  "129": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 42
+    }
+  },
+  "123": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "lcm"
+    }
+  },
+  "143": {
+    "class_type": "ManualSigmas",
+    "inputs": {
+      "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+    }
+  },
+  "125": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "129",
+        0
+      ],
+      "guider": [
+        "126",
+        0
+      ],
+      "sampler": [
+        "123",
+        0
+      ],
+      "sigmas": [
+        "143",
+        0
+      ],
+      "latent_image": [
+        "131",
+        1
+      ]
+    }
+  },
+  "121": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "125",
+        0
+      ],
+      "vae": [
+        "120",
+        0
+      ]
+    }
+  },
+  "122": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "125",
+        0
+      ],
+      "vae": [
+        "119",
+        0
+      ]
+    }
+  },
+  "130": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "122",
+        0
+      ],
+      "audio": [
+        "121",
+        0
+      ],
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none"
+    }
+  },
+  "92": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "130",
+        0
+      ],
+      "filename_prefix": "pika4090_official_balcony_low_peak_native_seed42",
+      "format": "mp4",
+      "codec": "h264"
+    }
+  },
+  "201": {
+    "class_type": "PikaH3Optimize",
+    "inputs": {
+      "model": [
+        "134",
+        0
+      ],
+      "chunk_size": "16384",
+      "activation": "native",
+      "fused_modulation": false
+    }
+  }
+}

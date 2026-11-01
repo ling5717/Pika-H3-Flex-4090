@@ -5,3 +5,10 @@ Copyright © 2026 Mellis, Inc.
 These adapters are Model Derivatives of MiniMax H3 and are distributed under the
 MiniMax H3 Community License Agreement (see LICENSE). Files modified from MiniMax H3
 carry notices stating that they have been modified.
+
+4090 integration additions (2026): independent ComfyUI extension and benchmark
+utilities. New extension files marked GPL-3.0-only are licensed under the GNU
+General Public License version 3 (comfy_extension/LICENSE). The preserved
+standalone src/ code remains Apache-2.0. No model weights are redistributed.
+Changes to the fork's README, dependency entry points and deployment documentation
+are identified as 4090 integration changes, not changes to the upstream model.

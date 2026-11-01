@@ -2,8 +2,9 @@ FROM python:3.12.14-slim-bookworm@sha256:392307d22300de8b5986851a12d9176dfc0fc07
 RUN apt-get update && apt-get install -y --no-install-recommends git patch ffmpeg libgl1 libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
-COPY requirements.txt ./
-RUN python -m pip install --no-cache-dir -r requirements.txt
+# Preserved upstream standalone/H100 recipe, not the ComfyUI 4090 extension.
+COPY requirements-standalone.txt ./
+RUN python -m pip install --no-cache-dir -r requirements-standalone.txt
 COPY licenses/ ./licenses/
 COPY LICENSE LICENSE-CODE NOTICE THIRD_PARTY_NOTICES.md ./
 COPY patches/ ./patches/

@@ -1,3 +1,4 @@
+# Modified in the 4090 fork: this remains the upstream standalone/H100 environment.
 name: pika-h3-pro
 channels:
   - conda-forge
@@ -9,4 +10,4 @@ dependencies:
   - ffmpeg
   - c-compiler
   - pip:
-      - -r requirements.txt
+      - -r requirements-standalone.txt

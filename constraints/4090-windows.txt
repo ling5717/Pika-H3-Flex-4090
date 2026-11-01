@@ -1,0 +1,16 @@
+# Measured Windows/Python3.12 stack; install CUDA PyTorch from its cu130 index first.
+torch==2.9.1+cu130
+torchvision==0.24.1+cu130
+torchaudio==2.9.1+cu130
+comfy-kitchen==0.2.40
+comfy-aimdo==0.6.0
+comfyui-frontend-package==1.57.6
+comfyui-workflow-templates==0.11.100
+transformers==5.22.1
+safetensors==0.8.0
+av==19.0.2
+numpy==2.5.4
+requests==2.34.2
+PyYAML==6.0.3
+Pillow==13.0.0
+triton-windows==3.5.1.post24; sys_platform == "win32"

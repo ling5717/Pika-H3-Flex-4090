@@ -7,3 +7,18 @@ outputs/
 *.safetensors
 build/
 dist/
+
+# Local environments, private benchmark histories, weights and binary wheels.
+.venv-*/
+benchmarks/local/
+benchmarks/raw/
+# Generated H3 media are not redistributed; upstream license restrictions apply.
+assets/4090/
+.local/
+.pytest_cache/
+*.whl
+*.ckpt
+*.pt
+*.pth
+.env.*
+!.env.example
