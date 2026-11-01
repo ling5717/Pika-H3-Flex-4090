@@ -39,7 +39,7 @@ PSNR/MAE here compare decoded8-bit RGB from the same local seed/artifacts. Audio
 2. The reported complete time is Comfy `execution_start→execution_success`: request loading, prompt encoding, six steps, audio/video decoding and MP4 saving. Server launch and dependency installation are excluded. The batch tool additionally records startup time.
 3. OS file/page cache, CUDA driver and Triton/Inductor disk caches were not cleared. A fresh process is **not** a fresh machine or a guarantee of cold compilation. The separate operator probe measured a first BF16 compile call around24.42s; do not hide that cost in a hot-kernel result.
 4. Whole-card VRAM is sampled approximately every5s by `nvidia-smi`; desktop/other GPU activity is included. Samples can miss instantaneous peaks and are not per-process allocated/reserved memory or a `resources_clear` certificate.
-5. All outputs were fully decoded:362 video frames, H264,24fps and32kHz stereo AAC. Non-silence and finite PCM were checked; first/middle/last contact sheets were inspected. No claim of subjective listening, full perceptual rating or broad prompt coverage is made.
+5. All T2V outputs were fully decoded:362 video frames, H264,24fps and32kHz stereo AAC. Ref2VA outputs have their separately stated 243 frames. Non-silence and finite PCM were checked; first/middle/last contact sheets were inspected. No claim of subjective listening, full perceptual rating or broad prompt coverage is made.
 6. Development runs predate final lifecycle safety fixes. The final qualification below uses a recorded inference-code commit. Those safety fixes reject unsupported bypass stacking and preserve rollback/ownership; they do not change the numerical default path.
 
 ## Final source qualification
@@ -49,6 +49,18 @@ The tested inference source has aggregate SHA-256 `926e262019aabfe2de2087db1cf1b
 ## Official showcase comparison
 
 The [official balcony case](4090/OFFICIAL_SAMPLE.md) is **328 frames**, not362. It is a prompt-matched qualitative reference with undisclosed official seed/checkpoint/preprocessing. Its runtime must not be mixed into the15-second table or used to claim faster15-second generation. A local stock-bypass/control versus optimized run checks the optimization itself under matched local inputs; the official clip provides a separate visual/audio reference.
+
+## Ref2VA multimodal reference workload
+
+Pika's Record-shop dance sample was tested separately with two reference images and one reference video. The video contained an embedded audio track. Each request used a fresh Comfy process with no cached node results and produced 243 frames at 24fps (10.125 seconds):
+
+| Output | Audio route | Node execution seconds | Whole-card sampled maximum |
+|---|---|---:|---:|
+| 1344×768 | Paired video soundtrack | 397.957 | 20,693 MiB |
+| 864×480 | Paired video soundtrack | 190.218 | 21,192 MiB |
+| 864×480 | Separate WAV derived from the same video | 190.815 | 21,318 MiB |
+
+This is a different workload from the 362-frame T2V results above and cannot be directly compared as a speedup. All outputs decoded fully with non-silent 32kHz stereo audio; subjective listening and reference-ablation were not performed. Local character identity did not fully match the official showcase. Official render seed/checkpoint are unknown; the Comfy reference node trims the 241-frame source video to 226 frames. See [Ref2VA demonstration, exact model links and reproduction](4090/REF2VA.md) and [sanitized measurements](../benchmarks/results/ref2va-4090.json).
 
 ## Reproduce
 

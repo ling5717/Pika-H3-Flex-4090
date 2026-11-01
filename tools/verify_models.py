@@ -9,9 +9,12 @@ from pathlib import Path
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--model-root", type=Path, required=True)
+    p.add_argument("--task", choices=("fl2va", "ref2va"), default="fl2va",
+                   help="Select the official FL2VA/T2V or Ref2VA manifest")
     a = p.parse_args()
     root = a.model_root.resolve()
-    manifest = json.loads((Path(__file__).resolve().parents[1] / "configs/models.json").read_text(encoding="utf8"))
+    filename = "models.json" if a.task == "fl2va" else "models-ref2va.json"
+    manifest = json.loads((Path(__file__).resolve().parents[1] / "configs" / filename).read_text(encoding="utf8"))
     print(manifest["license_notice"])
     bad = []
     for item in manifest["models"]:

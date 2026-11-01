@@ -23,8 +23,14 @@ def check(path):
         for value in node["inputs"].values():
             if isinstance(value, list) and len(value) == 2 and isinstance(value[0], str):
                 assert value[0] in graph, (path.name, key, value)
-    inputs = graph["131"]["inputs"]
-    assert (inputs["width"], inputs["height"], inputs["length"]) == (1344, 768, 362)
+    if graph.get("136", {}).get("class_type") == "MiniMaxH3ReferenceToVideo":
+        inputs = graph["136"]["inputs"]
+        assert (inputs["width"], inputs["height"]) in ((1344, 768), (864, 480))
+        assert inputs["length"] == 243
+        assert "ref_images.ref_image_0" in inputs and "ref_videos.ref_video_0" in inputs
+    else:
+        inputs = graph["131"]["inputs"]
+        assert (inputs["width"], inputs["height"], inputs["length"]) == (1344, 768, 362)
     assert graph["130"]["inputs"]["fps"] == 24
     assert graph["123"]["inputs"]["sampler_name"] == "lcm"
     assert graph["126"]["class_type"] == "BasicGuider"

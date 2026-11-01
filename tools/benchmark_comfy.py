@@ -36,7 +36,11 @@ def main():
     p.add_argument("--output-dir", type=Path, default=Path("benchmarks/local"))
     a = p.parse_args()
     graph = json.loads(a.graph.read_text(encoding="utf8"))
-    condition = graph["131"]["inputs"]
+    condition_nodes = [node for node in graph.values() if node.get("class_type") in
+                       ("MiniMaxH3ImageToVideo", "MiniMaxH3ReferenceToVideo")]
+    if len(condition_nodes) != 1:
+        raise ValueError("Expected exactly one supported MiniMax H3 conditioning node")
+    condition = condition_nodes[0]["inputs"]
     values = [float(x) for x in graph["143"]["inputs"]["sigmas"].split(",")]
     if len(values) != 7 or any(abs(x - y) > 1e-7 for x, y in zip(values, SIGMAS)):
         raise ValueError("Benchmark requires the official Pika six-NFE sigmas")

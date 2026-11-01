@@ -1,0 +1,103 @@
+{
+  "environment": "environment.json",
+  "scope": "one run per configuration; separate fresh service process; excludes server start; OS/cache may be warm; sampled card includes other processes",
+  "inputs": "two images plus one 24fps video; soundtrack either paired with the video (official case) or extracted as a standalone WAV for derived test",
+  "reference_frame_trimming": "241 frames to 226 frames by native 17k+5 alignment",
+  "image_reference_size": "match",
+  "seed": 42,
+  "nfe": 6,
+  "models_verified_full_sha256": true,
+  "subjective_audio_audition": false,
+  "runs": [
+    {
+      "case": "pika-ref2va-official-480p-10s-api",
+      "node_seconds": 190.218,
+      "cached_nodes": [],
+      "whole_card_sampled_max_MiB": 21192.0,
+      "sample_count": 39,
+      "validation": {
+        "file": "pika_ref2va_official_480p_10s_00001_.mp4",
+        "bytes": 2476684,
+        "video": {
+          "codec": "h264",
+          "width": 864,
+          "height": 480,
+          "fps": 24.0,
+          "decoded_frames": 243,
+          "duration_seconds": 10.125,
+          "minimum_frame_std": 55.29335121265741
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 324000,
+          "rms": 0.10164521586699077,
+          "peak": 0.9318196177482605
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "exact_local_api_sha256": "b15f4ad60056ecd3a34c216d5323a79c8b6cbcf63a0da0492cadf2121c1b4b0b"
+    },
+    {
+      "case": "pika-ref2va-official-768p-10s-api",
+      "node_seconds": 397.957,
+      "cached_nodes": [],
+      "whole_card_sampled_max_MiB": 20693.0,
+      "sample_count": 80,
+      "validation": {
+        "file": "pika_ref2va_official_768p_10s_00001_.mp4",
+        "bytes": 5215543,
+        "video": {
+          "codec": "h264",
+          "width": 1344,
+          "height": 768,
+          "fps": 24.0,
+          "decoded_frames": 243,
+          "duration_seconds": 10.125,
+          "minimum_frame_std": 55.72541261696366
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 324000,
+          "rms": 0.10043038200527482,
+          "peak": 0.9115576148033142
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "exact_local_api_sha256": "a60c1d5436a4d9f6a3b2f9827b4f0612cf3d6a563ac3b74eff54fe946683d6c4"
+    },
+    {
+      "case": "pika-ref2va-standalone-audio-480p-10s-api",
+      "node_seconds": 190.815,
+      "cached_nodes": [],
+      "whole_card_sampled_max_MiB": 21318.0,
+      "sample_count": 39,
+      "validation": {
+        "file": "pika_ref2va_standalone_audio_480p_10s_00001_.mp4",
+        "bytes": 2377759,
+        "video": {
+          "codec": "h264",
+          "width": 864,
+          "height": 480,
+          "fps": 24.0,
+          "decoded_frames": 243,
+          "duration_seconds": 10.125,
+          "minimum_frame_std": 55.328796317880666
+        },
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 32000,
+          "channels": 2,
+          "samples_per_channel": 324000,
+          "rms": 0.10615564806476063,
+          "peak": 0.9416652917861938
+        },
+        "limitations": "Full decode and non-silence checks plus optional RGB comparison; no subjective audio or broad perceptual evaluation."
+      },
+      "exact_local_api_sha256": "e17970857550af0630b71a77acbfbfad9c30866cf508db8d06e5da306a7b20da"
+    }
+  ]
+}

@@ -13,7 +13,7 @@ The original Pika-Labs standalone source is preserved in `src/`; its [archived R
 - Text-to-video **and audio**, 1344×768, **362 frames at 24 fps** (15.083 seconds).
 - Official Comfy-Org pruned INT8 ConvRot H3 base, Qwen NVFP4 AWQ encoder, INT8 video VAE, FP32 audio VAE, and Pika FL2VA LoRA.
 - The official **six model evaluations**, BasicGuider, LCM and prescribed manual sigmas. No reduced frame count, step skipping, sparse attention or replacement LoRA in the recommended preset.
-- Windows / RTX 4090 24 GB / 64 GB RAM. Other GPUs, Linux, portable installations, image conditioning and multimodal reference cases are **not performance-qualified** by these measurements.
+- Windows / RTX 4090 24 GB / 64 GB RAM. Other GPUs, Linux, portable installations and first/last-frame image conditioning are not performance-qualified. A single multimodal Ref2VA case has been separately measured below; arbitrary reference combinations are not qualified.
 
 | Recorded configuration | Full request seconds | Result-cache hits |
 |---|---:|---|
@@ -26,6 +26,14 @@ The original Pika-Labs standalone source is preserved in `src/`; its [archived R
 The small difference between the two development runs is **not evidence of a significant end-to-end speedup**. Complete candidate results, repetitions, numerical differences and exact measurement limits are recorded in [the benchmark report](docs/BENCHMARKS.md), not inferred from kernel microbenchmarks.
 
 Timing is ComfyUI `execution_start → execution_success`: actual request loading, encoding, six-step sampling, audio/video decoding and MP4 saving. It excludes installation and server startup; OS files and compiler/kernel caches may be warm. Do not compare it directly with an unspecified social-media timing boundary. Two runs of the older configuration are historical evidence, not repeated trials of every new candidate.
+
+## Ref2VA: image, video and audio references
+
+A separate RTX 4090 test used Pika's [official Record-shop dance demonstration](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/motion-transfer.mp4): two reference images plus one reference video and its soundtrack. At **1344×768, 243 frames / 10.125 seconds**, one fresh-process request took **397.957 seconds (6 min 38 s)**. The 864×480 version took 190.218 seconds. These are single observations with no node-result cache, not a repeated benchmark or a 15-second result.
+
+A separate 480p run routed audio extracted from that same reference video into the independent-audio input and completed in 190.815 seconds. This is a derived interface test, not an independent official audio sample. All three outputs decoded with non-silent stereo audio; no subjective audio audition was performed. The local sample retained the shop and broad dance scene, but failed to preserve the official character's animal face and striped tail in the inspected frames.
+
+The [Ref2VA guide](docs/4090/REF2VA.md) contains the official demo and input links, exact model and LoRA downloads and hashes, workflow/benchmark instructions, timing and full limitations. The official demo seed, rendering checkpoint and preprocessing are unknown. Local generated media are not publicly redistributed here; review the model's territorial and output-display restrictions.
 
 ## Quick start
 
