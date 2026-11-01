@@ -31,18 +31,22 @@ Timing is ComfyUI `execution_start → execution_success`: actual request loadin
 
 A separate RTX 4090 test used Pika's [official Record-shop dance demonstration](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/motion-transfer.mp4): two reference images plus one reference video and its soundtrack. At **1344×768, 243 frames / 10.125 seconds**, one fresh-process request took **397.957 seconds (6 min 38 s)**. The 864×480 version took 190.218 seconds. These are single observations with no node-result cache, not a repeated benchmark or a 15-second result.
 
-A separate 480p run routed audio extracted from that same reference video into the independent-audio input and completed in 190.815 seconds. This is a derived interface test, not an independent official audio sample. All three outputs decoded with non-silent stereo audio; no subjective audio audition was performed. The local sample retained the shop and broad dance scene, but failed to preserve the official character's animal face and striped tail in the inspected frames.
+A separate 480p run routed audio extracted from that same reference video into the independent-audio input and completed in 190.815 seconds. This is a derived interface test, not an independent official audio sample. All three outputs decoded with non-silent stereo audio; no subjective audio audition was performed.
 
-### Demo: official vs. RTX 4090
+**Correction:** the published inputs we used contain a human male character in Picture 1 and a record-shop environment in Picture 2; the linked official showcase depicts a raccoon character. Our earlier statement that the local output failed to preserve the raccoon's face and tail was incorrect: the supplied character reference itself is human. The two rendered videos are not evidence of the same character input. The upstream showcase's actual render inputs and settings are not disclosed, and visual resemblance alone does not establish how strongly either image influenced the result. See [the input audit](docs/4090/REF2VA.md#inputs-and-conditioning).
+
+### Demo: balcony-orbit, official vs. RTX 4090
+
+Both videos use the published text prompt for the **text-to-video** balcony showcase; no reference images are involved. Click a preview or video link to watch with audio.
 
 | Official Pika-Labs showcase | Local RTX 4090 output (AI-generated) |
 |:---:|:---:|
-| [![Official Record-shop dance preview](assets/showcases/motion-transfer.jpg)](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/motion-transfer.mp4) | [![Local 4090 result, labelled 6 min 38 s](assets/demos/ref2va-4090-preview.jpg)](https://github.com/ling5717/Pika-H3-Flex-4090/raw/main/assets/demos/ref2va-4090-labeled.mp4) |
-| [▶ Watch official video](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/motion-transfer.mp4) | [▶ Watch local result with audio](https://github.com/ling5717/Pika-H3-Flex-4090/raw/main/assets/demos/ref2va-4090-labeled.mp4) |
+| [![Official balcony showcase preview](assets/showcases/balcony-orbit.jpg)](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/balcony-orbit.mp4) | [![Local 4090 result, labelled 5 min 28 s](assets/demos/balcony-4090-preview.jpg)](https://github.com/ling5717/Pika-H3-Flex-4090/raw/main/assets/demos/balcony-4090-labeled.mp4) |
+| [▶ Watch official video](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/balcony-orbit.mp4) | [▶ Watch local result with audio](https://github.com/ling5717/Pika-H3-Flex-4090/raw/main/assets/demos/balcony-4090-labeled.mp4) |
 
-The local video is labelled **RTX 4090 · 768p · 6 min 38 s**, corresponding to **397.957 s complete node execution** for 243 frames at 24 fps and six evaluations. Timing includes reference encoding, sampling, audio/video decoding and saving; it excludes server startup. This is one local run. The official demo's seed, generating checkpoint, preprocessing and runtime are undisclosed, so the two videos are a qualitative comparison, not a controlled benchmark or exact reproduction.
+The local video is labelled **RTX 4090 · 768p · 5 min 28 s**, corresponding to **327.994 s complete node execution** for 328 frames at 24 fps and six evaluations. Timing includes prompt encoding, sampling, audio/video decoding and saving; it excludes server startup. This is one local run and is **not** the separate 362-frame/15-second benchmark. The official demo's seed, generating checkpoint, preprocessing and runtime are undisclosed, so the comparison is qualitative, not a controlled benchmark or exact reproduction. [Read the balcony case and validation](docs/4090/OFFICIAL_SAMPLE.md).
 
-The [Ref2VA guide](docs/4090/REF2VA.md) contains the input links, model and LoRA hashes, workflow instructions and limitations. The repository owner confirmed separate authorization for public display of this local result; that does **not** grant viewers additional rights. Review the [MiniMax H3 license](LICENSE), including its territorial and output-display restrictions.
+The repository owner confirmed separate authorization for public display of the local result; that does **not** grant viewers additional rights. Review the [MiniMax H3 license](LICENSE), including its territorial and output-display restrictions.
 
 ## Quick start
 
@@ -78,7 +82,7 @@ Strict candidate modes report unsupported configurations instead of silently ben
 
 ## Official showcase comparison
 
-For a separate 328-frame, 13.67-second prompt-matched test, we compared the [official Pika-Labs showcase](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/balcony-orbit.mp4) with a local AI-generated result. The official seed, generating checkpoint and preprocessing are undisclosed; this is a qualitative comparison, **not pixel ground truth**. A matched local stock-bypass vs optimized comparison was decoded RGB/PCM identical for this case. Generated H3 media are not redistributed here; see [provenance, observations and limitations](docs/4090/OFFICIAL_SAMPLE.md).
+For a separate 328-frame, 13.67-second prompt-matched test, we compared the [official Pika-Labs showcase](https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/0ddf55ad7067ca1e76812253bd7b4600df87f759/assets/showcases/balcony-orbit.mp4) with a local AI-generated result. The official seed, generating checkpoint and preprocessing are undisclosed; this is a qualitative comparison, **not pixel ground truth**. A matched local stock-bypass vs optimized comparison was decoded RGB/PCM identical for this case. The labelled local comparison video is linked above; see [provenance, observations and limitations](docs/4090/OFFICIAL_SAMPLE.md).
 
 ## Why it helps
 

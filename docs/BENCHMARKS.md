@@ -60,7 +60,7 @@ Pika's Record-shop dance sample was tested separately with two reference images 
 | 864×480 | Paired video soundtrack | 190.218 | 21,192 MiB |
 | 864×480 | Separate WAV derived from the same video | 190.815 | 21,318 MiB |
 
-This is a different workload from the 362-frame T2V results above and cannot be directly compared as a speedup. All outputs decoded fully with non-silent 32kHz stereo audio; subjective listening and reference-ablation were not performed. Local character identity did not fully match the official showcase. Official render seed/checkpoint are unknown; the Comfy reference node trims the 241-frame source video to 226 frames. See [Ref2VA demonstration, exact model links and reproduction](4090/REF2VA.md) and [sanitized measurements](../benchmarks/results/ref2va-4090.json).
+This is a different workload from the 362-frame T2V results above and cannot be directly compared as a speedup. All outputs decoded fully with non-silent 32kHz stereo audio; subjective listening and reference-ablation were not performed. The published character reference used locally depicts a human man, whereas the official showcase depicts a raccoon; the earlier claim that the local output lost a raccoon face/tail was incorrect. This is not a same-character identity comparison. Official render seed/checkpoint and actual render-time inputs are unknown; the Comfy reference node trims the 241-frame source video to 226 frames. See [Ref2VA demonstration, exact model links and reproduction](4090/REF2VA.md) and [sanitized measurements](../benchmarks/results/ref2va-4090.json).
 
 ## Reproduce
 
